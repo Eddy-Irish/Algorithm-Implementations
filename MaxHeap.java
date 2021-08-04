@@ -49,16 +49,19 @@ public class MaxHeap {
     private boolean hasParent(int index) { return getParentIndex(index) >= 0; }
 
     /**
-     * <p> Getter methods for left/right child node & parent node of a given node </p>
+     * <p> Getter methods for left/right child node, parent node of a given node,
+     *     & current size of heap </p>
      * 
      * @param parentIndex/childIndex  Index of element whose value is to be returned
-     * @return int                    Value of element at entered index
+     * @return int                    Value of element at desired index, or current size of heap
      */
     private int leftChild(int parentIndex) { return heap[getLeftChildIndex(parentIndex)]; }
 
     private int rightChild(int parentIndex) { return heap[getRightChildIndex(parentIndex)]; }
 
     private int parent(int childIndex) { return heap[getParentIndex(childIndex)]; }
+
+    private int getSize() { return size; }
 
     /**
      * <p> Method to swap two nodes in max-heap </p>
@@ -153,7 +156,7 @@ public class MaxHeap {
     /**
      * <p> Method to print values in the max-heap
      */
-    private void printHeap() {
+    public void printHeap() {
         System.out.print("HEAP VALUES : ");
         for (int i = 0; i < size; i++) { System.out.print(heap[i] + " "); }
         System.out.print("\n");
