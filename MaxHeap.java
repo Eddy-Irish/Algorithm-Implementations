@@ -61,7 +61,7 @@ public class MaxHeap {
 
     private int parent(int childIndex) { return heap[getParentIndex(childIndex)]; }
 
-    private int getSize() { return size; }
+    public int getSize() { return size; }
 
     /**
      * <p> Method to swap two nodes in max-heap </p>
@@ -114,7 +114,7 @@ public class MaxHeap {
         if (size == 0) {
             throw new NoSuchElementException();
         }
-        heap[0] = heap[size -1];
+        heap[0] = heap[size - 1];
         size--;
         heapifyDown();
     }
@@ -126,17 +126,17 @@ public class MaxHeap {
     private void heapifyDown() {
         int index = 0;
         while(hasLeftChild(index)) {
-            int smallestChildIndex = getLeftChildIndex(index);
+            int greatestChildIndex = getLeftChildIndex(index);
 
-            if (hasRightChild(index) && (rightChild(index) < leftChild(index))) {
-                smallestChildIndex = getRightChildIndex(index);
+            if (hasRightChild(index) && (rightChild(index) > leftChild(index))) {
+                greatestChildIndex = getRightChildIndex(index);
             }
 
-            if (heap[index] < heap[smallestChildIndex]) {
-                swap(index, smallestChildIndex);
+            if (heap[index] < heap[greatestChildIndex]) {
+                swap(index, greatestChildIndex);
             }
             else { break; }
-            index = smallestChildIndex;
+            index = greatestChildIndex;
         }
     }
 
