@@ -25,6 +25,17 @@ public class MaxHeap {
     }
 
     /**
+     * <p> Method to return the Array that the heap is built out of.
+     *     This will return the full array regardless off the heap size,
+     *     which is needed to get the sorted array after running HeapSort.
+     * 
+     * @return
+     */
+    public int[] getHeapArray() {
+        return this.heap;
+    }
+
+    /**
      * <p> GetIndex Methods that return index integer value
      * 
      * @param parentIndex/childIndex  Index of element in heap
