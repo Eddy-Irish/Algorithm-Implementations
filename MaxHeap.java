@@ -27,12 +27,22 @@ public class MaxHeap {
     /**
      * <p> Method to return the Array that the heap is built out of.
      *     This will return the full array regardless off the heap size,
-     *     which is needed to get the sorted array after running HeapSort.
+     *     which is needed to get the sorted array after running HeapSort.</p>
      * 
      * @return
      */
     public int[] getHeapArray() {
         return this.heap;
+    }
+
+    /**
+     * <p> Method that changes the size of the heap, which will largely be used
+     *     to decrease the size during HeapSort </p>
+     * 
+     * @param i
+     */
+    public void setHeapSize(int i){
+        this.size = i;
     }
 
     /**
@@ -80,7 +90,7 @@ public class MaxHeap {
      * @param index1  Index of first element to be swapped
      * @param index2  Index of second element to be swapped
      */
-    private void swap(int index1, int index2) {
+    public void swap(int index1, int index2) {
         int element = heap[index1];
         heap[index1] = heap[index2];
         heap[index2] = element;
