@@ -144,7 +144,7 @@ public class MaxHeap {
      * <p> Method that starts at the root of the heap and works down through the tree to ensure
      *     that the max-heap property is maintained, swapping elements as needed. </p>
      */
-    private void heapifyDown() {
+    public void heapifyDown() {
         int index = 0;
         while(hasLeftChild(index)) {
             int greatestChildIndex = getLeftChildIndex(index);
@@ -165,7 +165,7 @@ public class MaxHeap {
      * <p> Method that starts at the last node in the tree and works up the tree to ensure
      *     that the max-heap property is maintained, swapping elements as needed </p>
      */
-    private void heapifyUp() {
+    public void heapifyUp() {
         int index = size - 1;
 
         while (hasParent(index) && (parent(index) < heap[index])) {
@@ -180,6 +180,16 @@ public class MaxHeap {
     public void printHeap() {
         System.out.print("HEAP VALUES : ");
         for (int i = 0; i < size; i++) { System.out.print(heap[i] + " "); }
+        System.out.print("\n");
+    }
+
+    /**
+     * <p> Method to print values in the array that the heap was implemented in,
+     *     regardless of the current size of the heap </p>
+     */
+    public void printHeapArray() {
+        System.out.print("ARRAY VALUES : ");
+        for (int i = 0; i < this.capacity; i++) { System.out.print(heap[i] + " "); }
         System.out.print("\n");
     }
 }
