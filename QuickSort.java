@@ -1,6 +1,10 @@
 /* Implementation of QuickSort Algorithm.
     TIME COMPLEXITY: O(n log n) [On Average, and in most cases]; O(n^2) [Worst-case in rare situations]
-    SPACE COMPLEXITY: O(log n) [Again, on average and in most cases]; O(n) [Worst-case]
+    SPACE COMPLEXITY: O(log n) [Best & Avg. Cases]; O(n) [worst-case] in this version, which is a naive 
+                      implementation that does not use tail recursion or iteration for the larger subarray,
+                      but recursively sorts each subarray.
+                      O(log n) [worst, best, & avg cases] in versions that use tail recursion or iteration.
+
     - When implemented well, QuickSort is slightly faster than MergeSort, & 2-3x faster than HeapSort.
     - Usually, QuickSort implementations are NOT a stable sort algorithm.
     - The java.util.Arrays class utilizes a dual-pivot Quicksort for sorting primitive type Arrays

@@ -1,21 +1,30 @@
 public class MergeSort {
+/*  Implementation of MergeSort Algorithm.
+    TIME COMPLEIXTY: O(n log n) (Best, Average, & Worst-Case)
+    SPACE COMPLEXITY: O(n)
+      - MergeSort is an efficient, general-purpose comparison-sorting based algorithm
+      - MergeSort is a Divide-and-Conquer Algorithm, with most implementations resulting
+        in a stable sort.
+      - The main drawback of MergeSort is its Space Complexity, which requires that memory for
+        an auxilary array(s) to be created.
 
-    void merge(int input[], int l, int m, int r){
+*/
+    void merge(int input[], int L, int M, int R){
 
         // Determe the size of the two sub-arrays
-        int n1 = (m - l) + 1;
-        int n2 = r - m;
+        int n1 = (M - L) + 1;
+        int n2 = R - M;
 
         // New Sub-Arrays
-        int L[] = new int[n1];
-        int R[] = new int[n2];
+        int Left[] = new int[n1];
+        int Right[] = new int[n2];
 
         // Put data from original array into the sub-arrays
         for(int i = 0; i < n1; ++i){
-            L[i] = input[l + i];
+            Left[i] = input[L + i];
         }
         for(int j = 0; j < n2; ++j){
-            R[j] = input[m + 1 + j];
+            Right[j] = input[M + 1 + j];
         }
 
         // Indexes of the two sub-arrays
@@ -23,14 +32,14 @@ public class MergeSort {
 
         // Take the smallest value from either sub-array and add it to the original array
         // one at a time, resulting in the sorting of the values.
-        int k = l;
+        int k = L;
         while((left < n1) && (right < n2)){
-            if(L[left] <= R[right]) {
-                input[k] = L[left];
+            if(Left[left] <= Right[right]) {
+                input[k] = Left[left];
                 left++;
             }
             else {
-                input[k] = R[right];
+                input[k] = Right[right];
                 right++;
             }
             k++;
@@ -38,12 +47,12 @@ public class MergeSort {
 
         // If necessary, add any leftover values from the sub-arrays to the sorted array
         while(left < n1){
-            input[k] = L[left];
+            input[k] = Left[left];
             left++;
             k++;
         }
         while(right < n2){
-            input[k] = R[right];
+            input[k] = Right[right];
             right++;
             k++;
         }
@@ -51,14 +60,14 @@ public class MergeSort {
 
     }
 
-    void sort(int input[], int l, int r){
-        if (l < r) {
-            int m =(l + r) / 2;
+    void sort(int input[], int L, int R){
+        if (L < R) {
+            int m =(L + R) / 2;
             
-            sort(input, l, m);
-            sort(input, m + 1, r);
+            sort(input, L, m);
+            sort(input, m + 1, R);
 
-            merge(input, l, m, r);
+            merge(input, L, m, R);
         }
 
     }
@@ -74,7 +83,7 @@ public class MergeSort {
 
 
     public static void main(String args[]){
-        int arr[] = { 12, 11, 13, 5, 6, 7};
+        int arr[] = { 12, 11, 13, 5};
 
         System.out.println("Original unsorted Array...");
         printArray(arr);

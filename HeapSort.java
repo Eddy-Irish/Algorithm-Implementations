@@ -1,4 +1,11 @@
-// Implementing HeapSort using my MaxHeap class
+/* Implementing HeapSort using my MaxHeap class 
+   TIME COMPLEXITY: O(n log n) [Best, avg., & worst-case]
+   SPACE COMPLECITY: O(1)
+   - HeapSort is an in-place comparison based sorting algorithm that does not result in a stable sort.
+   - Similar to SelectionSort, but does not waste time doing a linear scan of the array, instead keeps 
+     the unsorted portion in a heap structure, making finding the minimum element very easy.
+
+*/
 
 public class HeapSort {
 
